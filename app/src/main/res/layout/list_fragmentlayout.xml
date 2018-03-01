@@ -19,13 +19,5 @@
 
     </android.support.v7.widget.RecyclerView>
 
-    <android.support.v7.widget.SearchView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@android:color/white"
-        android:elevation="30dp"
-        android:visibility="gone"
-        android:id="@+id/searchview"></android.support.v7.widget.SearchView>
-
 
 </FrameLayout>

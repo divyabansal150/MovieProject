@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.dbansal.movieretroproject.Model.MovieProject;
 import com.example.dbansal.movieretroproject.Model.Results;
 
 import java.util.ArrayList;
@@ -78,6 +79,7 @@ class MovieListAdapter extends RecyclerView.Adapter <MovieListAdapter.MovieListV
         mResults = results;
         notifyDataSetChanged();
     }
+
 
 
     class MovieListViewHolder extends RecyclerView.ViewHolder {

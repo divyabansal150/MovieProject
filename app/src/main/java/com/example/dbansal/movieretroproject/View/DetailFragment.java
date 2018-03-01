@@ -6,12 +6,14 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.dbansal.movieretroproject.Model.MovieDetail;
+import com.example.dbansal.movieretroproject.Model.MovieProject;
 import com.example.dbansal.movieretroproject.R;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -20,9 +22,9 @@ import com.facebook.drawee.view.SimpleDraweeView;
  */
 
 
-public class DetailFragment extends Fragment {
+public class DetailFragment extends Fragment implements INetworkCall {
     public TextView title,status,releaseDate,overview;
-    SimpleDraweeView imageView;
+    public SimpleDraweeView imageView;
     MovieDetail responseBody;
 
     @Nullable
@@ -30,7 +32,11 @@ public class DetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.detail_layout,container,false);
         initializeViews(view);
-        setData();
+        Bundle b = getArguments();
+
+        Service.getMovieDetail(b.getLong("id"),this);
+
+        // setData();
         return view;
     }
 
@@ -60,8 +66,28 @@ public class DetailFragment extends Fragment {
     }
 
 
-    public void updateResponse(MovieDetail body) {
-        responseBody = body;
+    @Override
+    public void handleResponse(MovieProject value) {
 
     }
+
+    @Override
+    public void handleError(Throwable error) {
+        Log.e("Response Error",error.getMessage());
+
+    }
+
+
+    @Override
+    public void handleDetailResponse(MovieDetail value) {
+        updateResponse(value);
+    }
+
+    public void updateResponse(MovieDetail body) {
+        responseBody = body;
+        setData();
+
+    }
+
+
 }

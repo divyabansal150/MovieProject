@@ -10,39 +10,39 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/card_view"
-        android:layout_gravity="center"
         android:layout_width="250dp"
         android:layout_height="250dp"
-        fresco:cardElevation="10dp"
+        fresco:cardElevation="35dp"
         card_view:cardCornerRadius="4dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_gravity="center|center_horizontal"
+            android:layout_height="match_parent">
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/sdvImage"
-        android:padding="10dp"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="130dp"
         fresco:placeholderImage="@android:drawable/picture_frame" />
 
         <TextView
             android:id="@+id/listText"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:textStyle="bold"
+            android:layout_below="@+id/sdvImage"
+            android:layout_alignLeft="@+id/sdvImage"
             android:textSize="15sp"
-            android:layout_gravity="center_horizontal"
-            android:textColor="@android:color/holo_red_dark"
-            android:padding="10dp"
+            android:layout_marginTop="20dp"
+            android:singleLine="false"
+            android:ellipsize="end"
+            android:textColor="@android:color/holo_blue_dark"
             android:text="Trump Disputes" />
 
 
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </android.support.v7.widget.CardView>
 

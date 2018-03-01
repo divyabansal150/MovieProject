@@ -3,10 +3,17 @@
 
     <group >
         <item
+            android:id="@+id/search"
+            android:icon="@android:drawable/ic_menu_search"
+            android:title="Search" />
+
+        <item
             android:id="@+id/popular"
+            android:icon="@android:drawable/star_big_on"
             android:title="Popular" />
         <item
             android:id="@+id/top"
+            android:icon="@android:drawable/arrow_up_float"
             android:title="Top" />
 
 

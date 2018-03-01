@@ -3,6 +3,7 @@ package com.example.dbansal.movieretroproject.View;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -92,21 +93,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        Fragment fragment = null;
         Bundle b = new Bundle();
-        MovieListFragment fragment = new MovieListFragment();
         if (id == R.id.search) {
-            fragment.onOptionsItemSelected(item);
+             fragment = new SearchFragment();
         } else if (id == R.id.top) {
+            fragment = new MovieListFragment();
             b.putString("queryType","Top");
             fragment.setArguments(b);
 
         } else if (id == R.id.popular) {
+             fragment = new MovieListFragment();
             b.putString("queryType","Popular");
             fragment.setArguments(b);
 
         }
-
-
         getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, fragment).commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
